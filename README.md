@@ -87,7 +87,7 @@ az disk show --resource-group devops-rg --name aks-pv-disk --query [id] -o tsv
 
 
 ### 2.4 Assign Role  
-You can assign the "Contributor" role to the disk resource, either through the Azure Portal (Access control (IAM) of aks cluster ) or by using the following Azure CLI command:
+You can assign the "Contributor" role to the disk resource, either through the Azure Portal (Access control (IAM)) or by using the following Azure CLI command:
 ```bash
 az role assignment create --assignee <cluster_principal_id> --role Contributor --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/disks/<disk-name>
 ```
