@@ -65,7 +65,7 @@ az disk create --resource-group <resource-group> --name <disk-name> --size-gb 10
 Example:
 az disk create --resource-group devops-rg --name aks-pv-disk --size-gb 10 --sku Standard_LRS  --location centralindia
 
-###Note: Ensure the disk is created in the same location as the AKS cluster.
+##### Note: Ensure the disk is created in the same location as the AKS cluster.
 
 ### 2.2 Show Disk Information (Basic)
 Display basic information about the specified disk.
@@ -92,7 +92,7 @@ You can assign the "Contributor" role to the disk resource, either through the A
 az role assignment create --assignee <cluster_principal_id> --role Contributor --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/disks/<disk-name>
 ```
 
-###Note: The <cluster-principal-id> can be retrieved from the output of the az aks show command (Step 1.4).
+##### Note: The cluster-principal-id can be retrieved from the output of the az aks show command (Step 1.4).
 
 ## 3. Helm & NGINX Ingress
 
