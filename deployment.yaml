@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-deployment
+  namespace: devops
+  labels:
+    app: helloworld
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      nodeSelector:
+        agentpool: nodepool2
+      containers:
+      - name: helloworld-container
+        image: taj070796/helloworld
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ENVIRONMENT
+          value: "development"
+        - name: LOG_LEVEL
+          value: "info"
+        - name: API_URL
+          value: "https://helloworld.example.com"
+        volumeMounts:
+        - mountPath: /mnt/storage
+          name: azure-storage
+      volumes:
+      - name: azure-storage
+        persistentVolumeClaim:
+          claimName: azure-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-service
+  namespace: devops
+spec:
+  selector:
+    app: helloworld
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+

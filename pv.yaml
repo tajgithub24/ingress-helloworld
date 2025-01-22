@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azure-pv
+  namespace: devops
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: azure-disk
+  csi:
+    driver: disk.csi.azure.com
+    volumeHandle: /subscriptions/2e4dc21d-1ab6-4c53-b928-fd916d3ac104/resourceGroups/devops-rg/providers/Microsoft.Compute/disks/pv-disk
+
