@@ -26,7 +26,6 @@ Steps:
 3.	Click on "Add" to create a new AKS cluster.
 4.	Fill in the required details such as subscription, resource group, region, and cluster configuration.
 5.	Review the configuration and click "Create".
-For more advanced users, the Azure CLI allows for creating an AKS cluster with customizable configurations.
 
 
 ### 1.4 Get AKS Cluster Details
